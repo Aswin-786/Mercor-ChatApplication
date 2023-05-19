@@ -19,13 +19,12 @@ const Login = () => {
   }
 
   let provider = new firebase.auth.GoogleAuthProvider();
-
+  // google login
   const handleGoogle = (e) => {
     e.preventDefault()
     console.log("ok working")
     firebase.auth()
       .signInWithPopup(provider).then((result) => {
-        console.log(result.user.displayName)
         result.user.updateProfile({ displayName: result.user.displayName })
           .then(() => {
             firebase.firestore().collection('users').doc(result.user.uid)
@@ -41,8 +40,8 @@ const Login = () => {
             firebase.firestore().collection('userChat').doc(result.user.uid).set({})
             history.push('/')
           })
+          .catch((error) => console.log(error))
       })
-
   }
 
   return (

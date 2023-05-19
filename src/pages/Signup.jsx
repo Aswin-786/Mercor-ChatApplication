@@ -55,10 +55,9 @@ const Signup = () => {
   }
 
   let provider = new firebase.auth.GoogleAuthProvider();
-
+// google signup
   const handleGoogle = (e) => {
     e.preventDefault()
-    console.log("ok working")
     firebase.auth()
       .signInWithPopup(provider).then((result) => {
         console.log(result.user.displayName)
@@ -77,8 +76,8 @@ const Signup = () => {
             firebase.firestore().collection('userChat').doc(result.user.uid).set({})
             history.push('/')
           })
+          .catch((error) => console.log(error))
       })
-
   }
 
   return (
