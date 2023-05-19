@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.messages {
+  background: #252529;
+  padding: 10px;
+  overflow-y: scroll;
+  height: calc(100% - 140px);
+}
+
+.message {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.messageInfo {
+  display: flex;
+  flex-direction: column;
+  color: grey;
+  font-weight: 300;
+  font-size: small;
+  margin-left: 10px;
+}
+
+.messageContent {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.messageContent p {
+  background: rgb(222, 221, 221);
+  
+  border-radius: 0px 10px 10px 10px;
+  
+}
+
+.owner {
+  flex-direction: row-reverse;
+
+}
+
+.owner .messageContent {
+  align-items: flex-end;
+}
+
+.owner p {
+  background: #8da4f1;
+  color: white;
+  border-radius: 10px 0px 10px 10px;
+}
